@@ -58,3 +58,16 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
 } else {
     darkToggle.checked = false;
 };
+
+
+//Kirim Pesan 
+function SendMail() {
+    var params = {
+        from_name : document.getElementById('fullName').value,
+        email_id : document.getElementById('email_id').value,
+        message : document.getElementById('message').value
+    }
+    emailjs.send('service_8u2y9rz', 'template_cdwxfc4', params).then(function (res) {
+        alert('PESAN ANDA SUDAH TERKIRIM, TERIMAKASIH \n' + res.status);
+    })
+}
